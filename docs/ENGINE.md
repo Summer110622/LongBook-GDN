@@ -149,9 +149,12 @@ engine 更新時は個別の PR で source pin、archive digest、allowlist、pa
 
 ## 検証範囲と残る作業
 
-高速なテストは小さな合成 GGUF で tokenizer、64 main recurrent layers、
-state 更新、prefill 分割等の構造を検証する。実際の 27B チェックポイントの
-品質・速度・長文保持能力を示すものではない。
+高速なテストは **4 recurrent blocks と宣言だけの MTP 1 block** を持つ小さな
+合成 F32 GGUF で tokenizer、GDN graph、state 更新、prefill 分割等を検証する。
+実モデルの **64 main recurrent layers** は、実 GGUF の header / tensor descriptor で
+構成を確認した。実際の 27B チェックポイントの weight loading / 生成は未実施であり、
+合成モデルの結果は実モデルの品質・速度・長文保持能力を示すものではない。
+実施した検証と再現条件は [VERIFICATION.md](VERIFICATION.md) に記録する。
 実モデル、CUDA、Metal、対応 projector を使った VL の受け入れ試験は
 `docs/PR_POLICY.md` の条件に従って別に記録する。
 
