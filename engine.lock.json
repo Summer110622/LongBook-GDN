@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "engine": "longbook27-llama",
+  "source": {
+    "repository": "https://github.com/vnlpscale/llama.cpp",
+    "commit": "c5709247c243a0b1ae299ddb9d8f4c8b0279be89",
+    "upstream_repository": "https://github.com/ggml-org/llama.cpp",
+    "compatibility_commit": "09b4a507062509b021ed07860fdf5dbc6727899f",
+    "archive_url": "https://codeload.github.com/vnlpscale/llama.cpp/tar.gz/c5709247c243a0b1ae299ddb9d8f4c8b0279be89",
+    "archive_sha256": "29af4bbc9052f1bf5f730ca7cc27c1bf54827786ab712b3d1bdeed820482927c",
+    "archive_bytes": 36924919,
+    "archive_root": "llama.cpp-c5709247c243a0b1ae299ddb9d8f4c8b0279be89"
+  },
+  "snapshot_path": "third_party/llama.cpp",
+  "architectures": [
+    "qwen35"
+  ],
+  "backends": [
+    "cpu",
+    "cuda",
+    "metal"
+  ],
+  "allowlist": {
+    "exact_files": [
+      "CMakeLists.txt",
+      "LICENSE",
+      "AUTHORS",
+      "src/CMakeLists.txt",
+      "src/models/models.h",
+      "src/models/qwen35.cpp",
+      "src/models/delta-net-base.cpp",
+      "ggml/CMakeLists.txt",
+      "ggml/src/CMakeLists.txt"
+    ],
+    "trees": [
+      "cmake/",
+      "include/",
+      "licenses/",
+      "ggml/cmake/",
+      "ggml/include/",
+      "ggml/src/ggml-cpu/",
+      "ggml/src/ggml-cuda/",
+      "ggml/src/ggml-metal/"
+    ],
+    "flat_directories": [
+      {
+        "path": "src",
+        "extensions": [
+          ".cpp",
+          ".c",
+          ".h",
+          ".in"
+        ]
+      },
+      {
+        "path": "ggml/src",
+        "extensions": [
+          ".cpp",
+          ".c",
+          ".h",
+          ".in"
+        ]
+      }
+    ]
+  },
+  "patches": [
+    {
+      "id": "0001-curate-qwen35",
+      "description": "Keep qwen35 plus delta-net-base, reject other model factories, remove unused vendor target, and stamp the pinned GGML identity.",
+      "edits_file": "patches/0001-curate-qwen35.json",
+      "edits_sha256": "9360dcce4e0e739b8c849c3a335ebafa8c2f28962e3e939a68ec4da8cf8df352",
+      "review_patch": "patches/0001-curate-qwen35.patch",
+      "review_patch_sha256": "eec8fafbdf67d50c50496cb16dabe6889f99e7901f15dfd4f399bb11a01c0e65"
+    }
+  ],
+  "removed_scope": [
+    "common",
+    "server and HTTP UI",
+    "upstream executables and tools",
+    "conversion and training utilities",
+    "unrelated model implementations",
+    "unselected GPU and RPC backends",
+    "multimodal encoder and audio/video processing"
+  ],
+  "retained_scope": [
+    "GGUF loader and mmap",
+    "tokenizer and sampler",
+    "recurrent and hybrid memory",
+    "Qwen35 optional-MTP compatibility",
+    "GDN graph and required tensor kernels",
+    "CPU, optional CUDA, optional Metal sources"
+  ],
+  "network_policy": "Regeneration downloads source only with --fetch; configure, build, verification, and inference do not fetch the engine.",
+  "snapshot_manifest_sha256": "5cb22708452455a326da803cced86be1d32f1da47d63eea5452ba947f16f7898"
+}

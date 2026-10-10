@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "profile_id": "longbook27-gdn64-q4_k_m",
+  "observed_at": "2026-10-10",
+  "repository": {
+    "id": "summerMC/Qwen3.8-27B-Longbook27-VL-GDN64-GGUF",
+    "revision": "f3ee816de60fd7f67911e949a53514b4b17f84bb",
+    "url": "https://huggingface.co/summerMC/Qwen3.8-27B-Longbook27-VL-GDN64-GGUF"
+  },
+  "artifact": {
+    "filename": "SpeedX27-GDN64-Q4_K_M.gguf",
+    "size_bytes": 16746122528,
+    "sha256": "5af94bfd3e1725ab09d8b82ef929706362bc0b269a7858d893389f9a40b27521",
+    "quantization": "Q4_K_M",
+    "license": "Apache-2.0"
+  },
+  "source_model": {
+    "id": "summerMC/Qwen3.8-27B-Longbook27-VL-GDN64",
+    "revision": "a579208838a5ef31718bd031babfbf859d377a05",
+    "model_type": "qwen3_5",
+    "architecture": "Qwen38GDN64VLForConditionalGeneration"
+  },
+  "gguf": {
+    "version": 3,
+    "metadata_count": 44,
+    "tensor_count": 899,
+    "metadata_end_offset": 10944065,
+    "tensor_table_end_offset": 10997013,
+    "tensor_data_offset": 10997024,
+    "tensor_descriptor_sha256": "855f862490a692b48d2f1504978238ee892ddd4ece6562a7f9236a82b55eb094",
+    "tensor_type_counts": {"0": 385, "12": 449, "14": 65},
+    "metadata": {
+      "general.architecture": "qwen35",
+      "general.type": "model",
+      "general.license": "apache-2.0",
+      "general.sampling.top_k": 20,
+      "general.sampling.top_p": 0.949999988079071,
+      "general.sampling.temp": 1.0,
+      "general.quantization_version": 2,
+      "general.file_type": 15,
+      "qwen35.block_count": 65,
+      "qwen35.nextn_predict_layers": 1,
+      "qwen35.context_length": 262144,
+      "qwen35.embedding_length": 5120,
+      "qwen35.feed_forward_length": 17408,
+      "qwen35.attention.head_count": 24,
+      "qwen35.attention.head_count_kv": 4,
+      "qwen35.attention.key_length": 256,
+      "qwen35.attention.value_length": 256,
+      "qwen35.attention.layer_norm_rms_epsilon": 9.999999974752427e-7,
+      "qwen35.rope.dimension_sections": [11, 11, 10, 0],
+      "qwen35.rope.dimension_count": 64,
+      "qwen35.rope.freq_base": 10000000.0,
+      "qwen35.ssm.conv_kernel": 4,
+      "qwen35.ssm.state_size": 128,
+      "qwen35.ssm.group_count": 16,
+      "qwen35.ssm.time_step_rank": 48,
+      "qwen35.ssm.inner_size": 6144,
+      "qwen35.full_attention_interval": 4,
+      "tokenizer.ggml.model": "gpt2",
+      "tokenizer.ggml.pre": "qwen35",
+      "tokenizer.ggml.bos_token_id": 248044,
+      "tokenizer.ggml.eos_token_id": 248046,
+      "tokenizer.ggml.padding_token_id": 248044,
+      "tokenizer.ggml.add_bos_token": false
+    },
+    "absent_metadata": ["qwen35.attention.recurrent_layers"],
+    "arrays": {
+      "tokenizer.ggml.tokens": {"element_type": 8, "length": 248320},
+      "tokenizer.ggml.token_type": {"element_type": 5, "length": 248320},
+      "tokenizer.ggml.merges": {"element_type": 8, "length": 247587}
+    },
+    "special_tokens": {
+      "248044": "<|endoftext|>",
+      "248045": "<|im_start|>",
+      "248046": "<|im_end|>"
+    },
+    "chat_template_sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041"
+  },
+  "topology": {
+    "main_recurrent_layers": 64,
+    "full_attention_layers": 0,
+    "mtp_tensor_count": 0,
+    "vision_tensor_count": 0,
+    "global_tensors": {
+      "token_embd.weight": {"dimensions": [5120, 248320], "ggml_type": 12},
+      "output_norm.weight": {"dimensions": [5120], "ggml_type": 0},
+      "output.weight": {"dimensions": [5120, 248320], "ggml_type": 14}
+    },
+    "block_tensors": {
+      "attn_gate.weight": {"dimensions": [5120, 6144], "ggml_type": 12},
+      "attn_norm.weight": {"dimensions": [5120], "ggml_type": 0},
+      "attn_qkv.weight": {"dimensions": [5120, 10240], "ggml_type": 12, "q6_layers": [0, 1, 2, 3, 4, 5, 6, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 56, 57, 58, 59, 60, 61, 62, 63]},
+      "ffn_down.weight": {"dimensions": [17408, 5120], "ggml_type": 12, "q6_layers": [0, 1, 2, 3, 4, 5, 6, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34, 37, 40, 43, 46, 49, 52, 55, 56, 57, 58, 59, 60, 61, 62, 63]},
+      "ffn_gate.weight": {"dimensions": [5120, 17408], "ggml_type": 12},
+      "ffn_up.weight": {"dimensions": [5120, 17408], "ggml_type": 12},
+      "post_attention_norm.weight": {"dimensions": [5120], "ggml_type": 0},
+      "ssm_a": {"dimensions": [48], "ggml_type": 0},
+      "ssm_alpha.weight": {"dimensions": [5120, 48], "ggml_type": 12},
+      "ssm_beta.weight": {"dimensions": [5120, 48], "ggml_type": 12},
+      "ssm_conv1d.weight": {"dimensions": [4, 10240], "ggml_type": 0},
+      "ssm_dt.bias": {"dimensions": [48], "ggml_type": 0},
+      "ssm_norm.weight": {"dimensions": [128], "ggml_type": 0},
+      "ssm_out.weight": {"dimensions": [6144, 5120], "ggml_type": 12}
+    }
+  },
+  "context": {
+    "client_default_tokens": 8192,
+    "gguf_declared_maximum_tokens": 262144,
+    "source_reported_validated_tokens": 262144,
+    "source_experimental_logical_tokens": 1000000000000,
+    "native_one_trillion_token_context": false,
+    "client_actual_checkpoint_validation": "not_run"
+  },
+  "modalities": {
+    "text": true,
+    "image": false,
+    "video": false,
+    "audio": false,
+    "mmproj_artifacts": [],
+    "reason": "The pinned GGUF repository contains only the text GGUF; its tensor table contains no vision/projector tensors. VL support is not implemented or verified."
+  },
+  "compatibility": {
+    "engine_repository": "https://github.com/vnlpscale/llama.cpp",
+    "engine_revision": "c5709247c243a0b1ae299ddb9d8f4c8b0279be89",
+    "essential_fix": "09b4a507062509b021ed07860fdf5dbc6727899f",
+    "requirements": [
+      "Infer recurrent topology from SSM tensors instead of the stale full_attention_interval=4.",
+      "Tolerate declared but absent MTP tensors; do not enable MTP decoding.",
+      "Build pure-recurrent graph inputs without dead KV/position inputs."
+    ]
+  },
+  "sources": {
+    "artifact_tree": "https://huggingface.co/api/models/summerMC/Qwen3.8-27B-Longbook27-VL-GDN64-GGUF/tree/f3ee816de60fd7f67911e949a53514b4b17f84bb",
+    "gguf_model_card": "https://huggingface.co/summerMC/Qwen3.8-27B-Longbook27-VL-GDN64-GGUF/raw/f3ee816de60fd7f67911e949a53514b4b17f84bb/README.md",
+    "gguf_header_and_descriptors": "https://huggingface.co/summerMC/Qwen3.8-27B-Longbook27-VL-GDN64-GGUF/resolve/f3ee816de60fd7f67911e949a53514b4b17f84bb/SpeedX27-GDN64-Q4_K_M.gguf",
+    "source_config": "https://huggingface.co/summerMC/Qwen3.8-27B-Longbook27-VL-GDN64/raw/a579208838a5ef31718bd031babfbf859d377a05/config.json",
+    "source_model_card": "https://huggingface.co/summerMC/Qwen3.8-27B-Longbook27-VL-GDN64/raw/a579208838a5ef31718bd031babfbf859d377a05/README.md",
+    "source_generation_config": "https://huggingface.co/summerMC/Qwen3.8-27B-Longbook27-VL-GDN64/raw/a579208838a5ef31718bd031babfbf859d377a05/generation_config.json",
+    "source_chat_template": "https://huggingface.co/summerMC/Qwen3.8-27B-Longbook27-VL-GDN64/raw/a579208838a5ef31718bd031babfbf859d377a05/chat_template.jinja",
+    "engine_qwen35": "https://github.com/vnlpscale/llama.cpp/blob/c5709247c243a0b1ae299ddb9d8f4c8b0279be89/src/models/qwen35.cpp"
+  }
+}
