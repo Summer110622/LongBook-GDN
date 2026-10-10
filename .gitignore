@@ -1,0 +1,16 @@
+/build/
+/.cache/
+/.venv/
+/dist/
+__pycache__/
+*.py[cod]
+*.gguf
+*.safetensors
+*.bin
+*.so
+*.dylib
+*.dll
+*.exe
+*.o
+*.a
+!third_party/**

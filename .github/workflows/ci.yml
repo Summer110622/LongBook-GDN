@@ -1,0 +1,27 @@
+name: Longbook27 CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  cpu-build-and-test:
+    name: cpu-build-and-test
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Verify pinned engine snapshot
+        run: python3 scripts/vendor_engine.py --verify
+      - name: Configure CPU client
+        run: cmake --preset cpu
+      - name: Build CPU client
+        run: cmake --build --preset cpu --parallel 2
+      - name: Test CLI and synthetic recurrent inference
+        run: ctest --preset cpu

@@ -1,0 +1,44 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {"major": 3, "minor": 21, "patch": 0},
+  "configurePresets": [
+    {
+      "name": "cpu",
+      "displayName": "CPU: pinned source build",
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/cpu",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "BUILD_TESTING": "ON",
+        "LONGBOOK27_NATIVE": "OFF",
+        "LONGBOOK27_OPENMP": "OFF",
+        "LONGBOOK27_CUDA": "OFF",
+        "LONGBOOK27_METAL": "OFF"
+      }
+    },
+    {
+      "name": "cuda",
+      "displayName": "CUDA: optional, separately validated",
+      "inherits": "cpu",
+      "binaryDir": "${sourceDir}/build/cuda",
+      "cacheVariables": {"LONGBOOK27_CUDA": "ON"}
+    },
+    {
+      "name": "metal",
+      "displayName": "Metal: optional, separately validated",
+      "inherits": "cpu",
+      "binaryDir": "${sourceDir}/build/metal",
+      "cacheVariables": {"LONGBOOK27_METAL": "ON"}
+    }
+  ],
+  "buildPresets": [
+    {"name": "cpu", "configurePreset": "cpu"},
+    {"name": "cuda", "configurePreset": "cuda"},
+    {"name": "metal", "configurePreset": "metal"}
+  ],
+  "testPresets": [
+    {"name": "cpu", "configurePreset": "cpu", "output": {"outputOnFailure": true}},
+    {"name": "cuda", "configurePreset": "cuda", "output": {"outputOnFailure": true}},
+    {"name": "metal", "configurePreset": "metal", "output": {"outputOnFailure": true}}
+  ]
+}
